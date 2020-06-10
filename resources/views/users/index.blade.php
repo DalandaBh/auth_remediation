@@ -36,14 +36,19 @@
                             <td>{{$user->email}}</td>
       
                             <td class="d-flex">
-                                <a href="{{route('users.edit', $user->id)}}">
-                                    <button class="btn btn-warning">Edit</button>
-                                </a>
-                                <form action="{{route('users.destroy',$user->id)}}" method="post">
-                                    @csrf
-                                    @method('delete')
-                                        <button class="btn btn-danger">Delete</button>
-                                </form>
+                                
+
+                                @if(Auth::user()->id == $user->id)
+                                    <a href="{{route('users.edit', $user->id)}}">
+                                        <button class="btn btn-warning">Edit {{$user->id}}</button>
+                                    </a>
+
+                                    <form action="{{route('users.destroy',$user->id)}}" method="post">
+                                        @csrf
+                                        @method('delete')
+                                            <button class="btn btn-danger">Delete</button>
+                                    </form>
+                                @endif
                                 {{-- <a href="{{route('users.show', $user->id)}}">
                                     <button class="btn btn-info">Show</button>
                                 </a> --}}

@@ -7,6 +7,14 @@ use App\User;
 
 class UserController extends Controller
 {
+
+    public function __constructor(){
+
+
+
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -65,10 +73,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        $user=User::find($id);
-
+        // $user=User::find($id);
         return view('users.edit',compact('user'));
     }
 

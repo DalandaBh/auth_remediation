@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    Welcome, You are logged in!
+                    Welcome {{Auth::user()->name}}, You are logged in!
 
                     <a href="{{route('users.index')}}">
                         <button class="btn btn-success d-block mx-auto">See Users</button>
