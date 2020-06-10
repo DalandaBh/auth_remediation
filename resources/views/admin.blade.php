@@ -14,7 +14,11 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    Welcome, You are logged in!
+
+                    <a href="{{route('users.index')}}">
+                        <button class="btn btn-success d-block mx-auto">See Users</button>
+                    </a>
                 </div>
             </div>
         </div>
