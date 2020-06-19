@@ -38,17 +38,23 @@
                             <td class="d-flex">
                                 
 
-                                @if(Auth::user()->id == $user->id)
+                                {{-- @if(Auth::user()->id == $user->id) --}}
+                                {{-- @can('update-user',$user) --}}
+                                @can('delete', $user)
+                                    
+                                    
                                     <a href="{{route('users.edit', $user->id)}}">
                                         <button class="btn btn-warning">Edit {{$user->id}}</button>
                                     </a>
-
+                                    
                                     <form action="{{route('users.destroy',$user->id)}}" method="post">
                                         @csrf
                                         @method('delete')
-                                            <button class="btn btn-danger">Delete</button>
+                                        <button class="btn btn-danger">Delete</button>
                                     </form>
-                                @endif
+                                @endcan
+                                {{-- @endcan --}}
+                                {{-- @endif --}}
                                 {{-- <a href="{{route('users.show', $user->id)}}">
                                     <button class="btn btn-info">Show</button>
                                 </a> --}}

@@ -18,8 +18,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::group(['middleware'=>['auth']],function(){
+
+    
+    Route::resource('/admin/users','UserController');
+});
 Auth::routes();
 
 Route::get('/admin', 'HomeController@index')->name('admin');
 
-Route::resource('/admin/users','UserController');

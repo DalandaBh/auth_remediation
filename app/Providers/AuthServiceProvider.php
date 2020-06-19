@@ -27,11 +27,10 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-          Gate::define('update-user',function(User $user){
-            // return true;
-            // return 1 === $user->id;
-            // return $user->id !== Auth::user()->id;
+        //   Gate::define('update-user',function($user,$myUser){
+    
+        //     return $user->id === $myUser->id;
             
-         });
+        //   });
     }
 }

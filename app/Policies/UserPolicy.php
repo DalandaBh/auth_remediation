@@ -52,9 +52,9 @@ class UserPolicy
      * @param  \App\User  $model
      * @return mixed
      */
-    public function update(User $user)  
+    public function update(User $user, $myUser)  
     {
-
+        return $user->id === $myUser->id;
     }
 
     /**
@@ -64,9 +64,9 @@ class UserPolicy
      * @param  \App\User  $model
      * @return mixed
      */
-    public function delete(User $user, User $model)
+    public function delete(User $user, $myUser)
     {
-        //
+        return $user->id === $myUser->id;
     }
 
     /**
